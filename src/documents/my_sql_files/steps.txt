@@ -1,0 +1,54 @@
+step-1 (after installing mysql server )
+      pip install mysql-connector-python
+       or   
+      pip install pymysql
+
+step-2 Import the Connector in Your Python Code
+      import mysql.connector
+      or 
+      import pymysql
+step-3
+ set-up the connection:
+import mysql.connector
+
+# Connect to MySQL
+connection = mysql.connector.connect(
+    host="localhost",        # Replace with your host (e.g., localhost or IP address)
+    user="your_username",    # Replace with your MySQL username
+    password="your_password",# Replace with your MySQL password
+    database="your_database" # Replace with the database you want to use
+)
+
+# Check if the connection is successful
+if connection.is_connected():
+    print("Connected to MySQL")
+
+      or
+
+connection = pymysql.connect(
+    host='localhost',          # Replace with your MySQL server's host
+    user='your_username',      
+    password='your_password',  
+    database='your_database'  
+)
+
+print("Connected to MySQL")
+
+step-4 create a cursor
+    cursor = connection.cursor()
+step-5 execute the query
+    cursor = connection.cursor()
+    
+    # Example query: Fetch data from a table
+    cursor.execute("SELECT * FROM your_table_name")
+    
+    # Fetch all rows
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+
+Step 6: Close the Connection
+# Close the cursor and connection
+cursor.close()
+connection.close()
+print("Connection closed")
